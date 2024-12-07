@@ -47,7 +47,7 @@ const showPass = ref(false)
                         <span>I agree to the <NuxtLink to="/terms" class="font-bold">Terms & Conditions</NuxtLink>
                         </span>
                     </div>
-                    <Button label="Signup" size="large" class="mt-10" />
+                    <Button label="Signup" size="large" class="mt-10" @click="navigateTo('/accounts/otp/verify-email')" />
                 </form>
             </div>
         </div>

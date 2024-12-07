@@ -44,9 +44,9 @@ const showPass = ref(false)
                             <Checkbox id="rememberMe" value="Remember me" />
                             <label for="rememberMe">Remember me</label>
                         </div>
-                        <NuxtLink to="/accounts/reset-password">Forgot Password?</NuxtLink>
+                        <NuxtLink to="/accounts/password/reset">Forgot Password?</NuxtLink>
                     </div>
-                    <Button label="Login" size="large" class="mt-10"/>
+                    <Button label="Login" size="large" class="mt-10" @click="navigateTo('/')" />
                 </form>
             </div>
         </div>
