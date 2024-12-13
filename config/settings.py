@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "rest_framework_api_key",
+    "django.contrib.sites",
     # apps
     "accounts_app.apps.AccountsAppConfig",
 ]
@@ -190,3 +191,14 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "email.best.social@gmail.com"
+EMAIL_HOST_PASSWORD = "ytmf yygy wetz znfa"
+DEFAULT_FROM_EMAIL = "no-replay@mail.best-social.ir"
+
+
+SITE_ID = 1

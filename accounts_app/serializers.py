@@ -29,3 +29,20 @@ class RegisterSerializer(serializers.Serializer):
 
     def validate_password(self, value):
         pass
+
+
+class EmailVerificationSerializer(serializers.Serializer):
+    code = serializers.CharField(required=True, label="Code")
+    email = serializers.EmailField(required=True, label="Email")
+
+    def validate_code(self, value):
+        if len(value) > 4 and len(value) < 4:
+            raise serializers.ValidationError("Code most be 4 characters.")
+        return value
+
+    def validate_email(self, value):
+        value = value.lower()
+        check_exist_email = get_user_model().objects.filter(email=value).exists()
+        if not check_exist_email:
+            raise serializers.ValidationError("Email not found.")
+        return value

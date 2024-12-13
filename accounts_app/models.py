@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.auth import get_user_model
 # Create your models here.
 
 
@@ -14,7 +14,7 @@ class CustomUser(AbstractUser):
 
 class UserProfile(models.Model):
     user = models.ForeignKey(
-        CustomUser,
+        get_user_model(),
         on_delete=models.CASCADE,
         related_name="profile",
         verbose_name=_("User"),
@@ -31,6 +31,8 @@ class UserProfile(models.Model):
     profile_bg_image = models.ImageField(
         upload_to="profiles/images/", verbose_name=_("Profile Background Image")
     )
+    email_verification_status = models.BooleanField(default=False, verbose_name=_("Email Verification Status"))
+    email_verification_code = models.CharField(max_length=4, verbose_name=_("Email Verification Code"), unique=True)
 
     class Meta:
         verbose_name = _("Profile")
