@@ -15,14 +15,14 @@ class CustomUser(AbstractUser):
 class UserProfile(models.Model):
     user = models.ForeignKey(
         CustomUser,
-        on_delete=models.DO_NOTHING,
+        on_delete=models.CASCADE,
         related_name="profile",
         verbose_name=_("User"),
     )
     first_name = models.CharField(max_length=50, verbose_name=_("First Name"))
     last_name = models.CharField(max_length=50, verbose_name=_("Last Name"))
     phone_number = models.CharField(
-        max_length=50, verbose_name=_("Phone Number"), unique=True
+        max_length=50, verbose_name=_("Phone Number"), blank=True, null=True
     )
 
     profile_image = models.ImageField(
