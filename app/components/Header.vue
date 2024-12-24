@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sticky top-0 backdrop-blur-3xl">
     <UContainer>
       <nav class="flex justify-between items-center p-5">
         <div>

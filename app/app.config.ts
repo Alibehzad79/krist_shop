@@ -5,5 +5,8 @@ export default defineAppConfig({
       primary: 'blue',
       neutral: 'zinc',
     },
+    icons: {
+      loading: "svg-spinners:ring-resize"
+    }
   }
 })

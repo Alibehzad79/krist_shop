@@ -25,7 +25,8 @@
               </UInput>
             </UFormField>
 
-            <UButton label="Login" type="submit" size="xl" class="w-96 justify-center cursor-pointer" />
+            <UButton label="Login" type="submit" size="xl" :loading="btnLoading"
+              class="w-96 justify-center cursor-pointer" />
           </UForm>
         </div>
       </div>
@@ -51,8 +52,10 @@ const state = reactive<Partial<Schema>>({
   email: undefined,
   password: undefined
 })
+const btnLoading = ref(false)
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
+  btnLoading.value = true
   toast.add({ title: 'Login Successfuly', color: 'success', duration: 3000 })
   setTimeout(() => {
     navigateTo('/')
